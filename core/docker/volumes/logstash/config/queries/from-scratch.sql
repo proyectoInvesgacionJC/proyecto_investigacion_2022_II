@@ -1,0 +1,1 @@
+SELECT * FROM snort_db.t_snort_log

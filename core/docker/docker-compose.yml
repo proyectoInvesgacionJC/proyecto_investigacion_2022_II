@@ -1,0 +1,60 @@
+version: "3.7"
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    ports:
+    # el puerto por defecto está ocupado por otra instancia
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: snort_db
+      MYSQL_USER: snort
+      MYSQL_PASSWORD: snort
+    working_dir: /docker-app-mysql
+    volumes:
+      - ./:/docker-app-mysql
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.9.3
+    container_name: elasticsearch
+    ports:
+      - "9200:9200"
+    environment:
+      - discovery.type=single-node
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    volumes:
+      - ./volumes/elasticsearch/data:/usr/share/elasticsearch/data
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+  
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.9.3
+    container_name: kibana
+    ports:
+      - "5601:5601"
+    environment:
+      - "ELASTICSEARCH_URL=http://elasticsearch:9200"
+      - "SERVER_NAME=127.0.0.1"
+    depends_on:
+      - elasticsearch
+
+  logstash:
+    build:
+      context: .
+      dockerfile: dockerfile-logstash
+    container_name: logstash
+    depends_on:
+      - mysql
+      - elasticsearch
+    # environment:
+    #   - "xpack.monitoring.enabled=true"
+    #   - "xpack.monitoring.elasticsearch.url=http://127.0.0.1:9200"
+    volumes:
+      - ./volumes/logstash/pipeline/:/usr/share/logstash/pipeline/
+      - ./volumes/logstash/config/pipelines.yml:/usr/share/logstash/config/pipelines.yml
+      - ./volumes/logstash/config/queries/:/usr/share/logstash/config/queries/

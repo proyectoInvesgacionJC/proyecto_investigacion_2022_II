@@ -1,0 +1,35 @@
+[
+  {
+    "timestamp": "11/04-21:37:31.632076",
+    "rule_id": "10002",
+    "rule_msg": "Harmful content search",
+    "priotity": "0",
+    "service": "TCP",
+    "source_ip": "192.168.100.19",
+    "source_port": "46142",
+    "target_ip": "192.168.100.40",
+    "target_port": "4444"
+  },
+  {
+    "timestamp": "11/04-21:37:31.632076",
+    "rule_id": "10001",
+    "rule_msg": "Harmful content search",
+    "priotity": "0",
+    "service": "TCP",
+    "source_ip": "192.168.100.19",
+    "source_port": "46142",
+    "target_ip": "192.168.100.40",
+    "target_port": "4444"
+  },
+  {
+    "timestamp": "11/04-20:27:08.109764",
+    "rule_id": "10000",
+    "rule_msg": "Incomming SSH traffic",
+    "priotity": "0",
+    "service": "TCP",
+    "source_ip": "192.168.100.40",
+    "source_port": "48166",
+    "target_ip": "192.168.100.19",
+    "target_port": "22"
+  }
+]

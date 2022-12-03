@@ -1,0 +1,17 @@
+SPSA Control de Inventario: Luis Morales / Iván Herrero
+Centralizar datos Cineplanet: Joel / Luis Morales
+Modelo de Datos Corporativo: Joel / Moisés / Jose Carlos
+Modelo Ads: Fiorela
+Modelo GA4: Fiorela
+Modelo UA-360: Fiorela
+Modelo de datos NGR: Joel
+Huascarán: Gustavo / Luis
+Ajustes party_id Interseguro: Joel
+Audiencias digitales - tablas de visualización performance y share: Luis Morales
+Centralizar datos INNOVA Perú: Joel / Luis Morales / David
+Modelo de datos de inferencia para audiencias digitales: Joel
+Calidad de datos VUC: Fiorela/John/Luis/Enrique
+INCA (Metadata y funcionalidades): Enrique / Joel
+Clientes no identificados SPSA: Fiorela
+Data Enablement Academy: David
+INSIDE: David
